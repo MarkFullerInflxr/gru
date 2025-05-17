@@ -14,3 +14,13 @@ func ToMap[K comparable, V any](things []V, fn func(V) K) map[K]V {
 	}
 	return res
 }
+
+func Filter[T comparable](things []T, fn func(T) bool) (res []T) {
+	for _, t := range things {
+		if fn(t) {
+			res = append(res, t)
+		}
+	}
+
+	return
+}
